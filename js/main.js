@@ -1,0 +1,112 @@
+// Navigation
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+
+// Toggle navigation menu
+burger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+    
+    // Animate links
+    navLinks.forEach((link, index) => {
+        if (link.style.animation) {
+            link.style.animation = '';
+        } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        }
+    });
+
+    // Burger animation
+    burger.classList.toggle('toggle');
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollTop = 0;
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    } else {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+    }
+});
+
+// Form submission
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    // Here you would typically send the form data to a server
+    // For now, we'll just log it and show a success message
+    console.log('Form submitted:', formData);
+    
+    // Clear form
+    contactForm.reset();
+    
+    // Show success message
+    alert('Thank you for your message! I will get back to you soon.');
+});
+
+// Add animation to project cards on scroll
+const projectCards = document.querySelectorAll('.project-card');
+const skillItems = document.querySelectorAll('.skill-item');
+
+const isInViewport = (element) => {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+const animateOnScroll = () => {
+    projectCards.forEach(card => {
+        if (isInViewport(card)) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }
+    });
+
+    skillItems.forEach(item => {
+        if (isInViewport(item)) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+// Initial styles for animation
+projectCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease-out';
+});
+
+skillItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'all 0.5s ease-out';
+});
+
+// Add scroll event listener
+window.addEventListener('scroll', animateOnScroll);
+// Initial check for elements in viewport
+animateOnScroll(); 
