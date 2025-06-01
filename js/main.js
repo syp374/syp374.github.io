@@ -109,4 +109,30 @@ skillItems.forEach(item => {
 // Add scroll event listener
 window.addEventListener('scroll', animateOnScroll);
 // Initial check for elements in viewport
-animateOnScroll(); 
+animateOnScroll();
+
+// Language Switcher
+const langButtons = document.querySelectorAll('.lang-btn');
+
+langButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all buttons
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get the language
+        const lang = button.getAttribute('data-lang');
+        
+        // Here you can add logic to switch the language content
+        // For now, we'll just store the selected language in localStorage
+        localStorage.setItem('selectedLanguage', lang);
+    });
+});
+
+// Set initial active state based on stored language or default to 'en'
+const storedLang = localStorage.getItem('selectedLanguage') || 'en';
+document.querySelector(`.lang-btn[data-lang="${storedLang}"]`).classList.add('active'); 
