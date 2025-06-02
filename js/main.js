@@ -114,6 +114,164 @@ animateOnScroll();
 // Language Switcher
 const langButtons = document.querySelectorAll('.lang-btn');
 
+// Remove any existing active classes first
+langButtons.forEach(btn => btn.classList.remove('active'));
+
+// Initialize with English
+document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
+document.body.setAttribute('data-lang', 'en');
+
+const testimonials = {
+    en: [
+        {
+            text: "Her methodical approach and thorough analysis of projects was impressive. Every step was backed by solid logic and careful consideration.",
+            role: "Project Team Member"
+        },
+        {
+            text: "Even when team momentum was low, she maintained her enthusiasm and drive, actively seeking feedback and exploring various approaches to ensure thorough execution.",
+            role: "Project Team Member"
+        },
+        {
+            text: "Quick decision-making combined with rapid execution led to fast results. Her commitment to sharing progress and seeking team feedback was particularly noteworthy.",
+            role: "Project Team Member"
+        },
+        {
+            text: "She showed exceptional focus on her responsibilities, regardless of others' performance levels. Her commitment to completing tasks was truly admirable.",
+            role: "Project Team Member"
+        },
+        {
+            text: "I positively remember how she provided constructive feedback on tasks during the project while also being generous with praise for team members' accomplishments.",
+            role: "Project Team Member"
+        },
+        {
+            text: "Her adventurous spirit to relentlessly try everything she learned and her unstoppable drive towards goals was a great asset to the team.",
+            role: "Project Team Member"
+        }
+    ],
+    kr: [
+        {
+            text: "어느 것 하나 대충 하지 않고 철저한 논리에 의해서 프로젝트를 진행하는 모습이 인상적이었습니다.",
+            role: "프로젝트 팀원"
+        },
+        {
+            text: "다른 팀원들이 적극적이지 않아서 무기력해질 법도 한데 열정을 잃지 않고 추진력 있게 팀을 이끌어가는 모습, 모르는 부분은 튜터님께 적극적으로 가서 피드백을 받고 개선하는 모습, 꼼꼼하게 처리하기 위해 다양한 방법을 모색하고 시도하려는 모습이 인상 깊었습니다.",
+            role: "프로젝트 팀원"
+        },
+        {
+            text: "빠른 결단력을 바탕으로 바로 행동으로 옮기면서 결과물 도출이 빠른 점, 이때 본인의 작업한 내용을 팀원들과 공유하고 피드백을 받으려는 점이 인상 깊었습니다.",
+            role: "프로젝트 팀원"
+        },
+        {
+            text: "팀원이 얼마나 열심히 하는지 안 하는지에 관심을 주로 두기보다는, 먼저 자신이 맡은 일을 책임감 있게 완수하는 모습을 보며 대단하다고 느꼈습니다.",
+            role: "프로젝트 팀원"
+        },
+        {
+            text: "팀원들이 프로젝트 중에 수행한 과업에 대해 피드백을 주는 것과 동시에 칭찬을 아끼지 않는 모습이 긍정적으로 기억됩니다.",
+            role: "프로젝트 팀원"
+        },
+        {
+            text: "배웠던 모든 내용을 시도해보려는 도전 정신과 목표를 향해 멈추지 않는 불도저같은 모습이 팀에 큰 도움이 되었습니다.",
+            role: "프로젝트 팀원"
+        }
+    ]
+};
+
+function updateTestimonials(lang) {
+    const testimonialGrid = document.querySelector('.testimonial-grid');
+    const currentTestimonials = testimonials[lang];
+    
+    testimonialGrid.innerHTML = currentTestimonials.map(testimonial => `
+        <div class="testimonial-card">
+            <div class="testimonial-content">
+                <p class="testimonial-text">"${testimonial.text}"</p>
+            </div>
+            <div class="testimonial-attribution">
+                <span class="testimonial-role">${testimonial.role}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Word Cloud Configuration
+const wordCloudData = {
+    en: [
+        { text: 'Analytical', weight: 60 },
+        { text: 'Driven', weight: 55 },
+        { text: 'Detail-oriented', weight: 52 },
+        { text: 'Problem Solver', weight: 48 },
+        { text: 'Passionate', weight: 45 },
+        { text: 'Team Player', weight: 42 },
+        { text: 'Innovative', weight: 40 },
+        { text: 'Determined', weight: 38 },
+        { text: 'Thorough', weight: 35 },
+        { text: 'Proactive', weight: 32 }
+    ],
+    kr: [
+        { text: '열정', weight: 60 },
+        { text: '분석력', weight: 55 },
+        { text: '적극적', weight: 52 },
+        { text: '철저한', weight: 48 },
+        { text: '호기심', weight: 45 },
+        { text: '빠른 실행력', weight: 42 },
+        { text: '목표지향적', weight: 40 },
+        { text: '꼼꼼한', weight: 38 },
+        { text: '추진력', weight: 35 },
+        { text: '탐구정신', weight: 32 },
+        { text: '책임감', weight: 30 },
+        { text: '문제 해결', weight: 28 },
+        { text: '끈기', weight: 25 }
+    ]
+};
+
+function updateWordCloud(lang) {
+    const cloudCanvas = document.getElementById('wordCloudCanvas');
+    const containerWidth = cloudCanvas.parentElement.offsetWidth;
+    const containerHeight = 350;
+    
+    cloudCanvas.width = 500;
+    cloudCanvas.height = 350;
+
+    WordCloud(cloudCanvas, {
+        list: wordCloudData[lang].map(word => [word.text, word.weight]),
+        gridSize: 8,
+        weightFactor: 2,
+        fontFamily: lang === 'kr' ? 'Noto Sans KR, sans-serif' : 'Roboto, sans-serif',
+        color: function(word, weight) {
+            if (weight >= 55) return '#0F172A';
+            if (weight >= 50) return '#1E293B';
+            if (weight >= 40) return '#334155';
+            if (weight >= 35) return '#475569';
+            if (weight >= 25) return '#64748B';
+            return '#94A3B8';
+        },
+        backgroundColor: 'transparent',
+        rotateRatio: 0.2,
+        rotationSteps: 2,
+        drawOutOfBound: false,
+        shrinkToFit: true,
+        minSize: 12,
+        shuffle: false
+    });
+}
+
+function updateLanguage(lang) {
+    // Remove language classes from body
+    document.body.classList.remove('lang-en', 'lang-kr');
+    // Add new language class
+    document.body.setAttribute('data-lang', lang);
+    
+    // Update testimonials
+    updateTestimonials(lang);
+    
+    // Update word cloud
+    updateWordCloud(lang);
+}
+
+// Initialize with English
+document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
+document.body.setAttribute('data-lang', 'en');
+updateWordCloud('en');
+
 langButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -127,15 +285,13 @@ langButtons.forEach(button => {
         // Get the language
         const lang = button.getAttribute('data-lang');
         
-        // Here you can add logic to switch the language content
-        // For now, we'll just store the selected language in localStorage
+        // Update language
+        updateLanguage(lang);
+        
+        // Store the selected language
         localStorage.setItem('selectedLanguage', lang);
     });
 });
-
-// Set initial active state based on stored language or default to 'en'
-const storedLang = localStorage.getItem('selectedLanguage') || 'en';
-document.querySelector(`.lang-btn[data-lang="${storedLang}"]`).classList.add('active');
 
 // Spider Chart
 const ctx = document.getElementById('skillsSpiderChart').getContext('2d');
@@ -194,56 +350,8 @@ new Chart(ctx, {
     }
 });
 
-// Word Cloud
-const words = [
-    { text: 'Analytical', size: 60 },
-    { text: 'Driven', size: 55 },
-    { text: 'Detail-oriented', size: 50 },
-    { text: 'Problem Solver', size: 45 },
-    { text: 'Passionate', size: 40 },
-    { text: 'Team Player', size: 35 },
-    { text: 'Innovative', size: 30 },
-    { text: 'Determined', size: 25 },
-    { text: 'Thorough', size: 20 },
-    { text: 'Proactive', size: 15 }
-];
-
-const cloudCanvas = document.getElementById('wordCloudCanvas');
-const cloudCtx = cloudCanvas.getContext('2d');
-
-// Set canvas size
-cloudCanvas.width = cloudCanvas.parentElement.offsetWidth;
-cloudCanvas.height = 400;
-
-// Create word cloud
-WordCloud(cloudCanvas, {
-    list: words.map(word => [word.text, word.size]),
-    gridSize: 16,
-    weightFactor: 1,
-    fontFamily: 'Roboto, sans-serif',
-    color: 'rgba(44, 62, 80, 0.8)',
-    backgroundColor: 'transparent',
-    rotateRatio: 0.5,
-    rotationSteps: 2,
-    drawOutOfBound: false
-});
-
 // Update word cloud size on window resize
 window.addEventListener('resize', () => {
-    const cloudCanvas = document.getElementById('wordCloudCanvas');
-    cloudCanvas.width = cloudCanvas.parentElement.offsetWidth;
-    cloudCanvas.height = 400;
-    
-    // Recreate word cloud
-    WordCloud(cloudCanvas, {
-        list: words.map(word => [word.text, word.size]),
-        gridSize: 16,
-        weightFactor: 1,
-        fontFamily: 'Roboto, sans-serif',
-        color: 'rgba(44, 62, 80, 0.8)',
-        backgroundColor: 'transparent',
-        rotateRatio: 0.5,
-        rotationSteps: 2,
-        drawOutOfBound: false
-    });
+    const lang = document.body.getAttribute('data-lang');
+    updateWordCloud(lang);
 }); 

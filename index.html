@@ -6,7 +6,7 @@
     <title>Data Science Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
 </head>
@@ -60,14 +60,21 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a passionate data science graduate student with a strong foundation in statistical analysis, machine learning, and data visualization. My goal is to leverage data-driven insights to solve complex business problems and make meaningful impacts.</p>
-                    <p>With experience in Python, R, and various data science tools, I specialize in turning raw data into actionable insights through advanced analytics and visualization techniques.</p>
+                    <p class="about-text-en">I am an aspiring data professional with a business administration background and hands-on experience in sales and marketing. Through my internships, I discovered how data-driven insights can transform business decision-making, which inspired me to pursue intensive training in data analytics and complete additional coursework in linear algebra, python programming, and data visualization.</p>
+                    <p class="about-text-en">My goal is to leverage data-driven insights to solve complex business problems and drive meaningful impact. By combining analytical skills with my business background, I am eager to help organizations make informed decisions that fuel growth and innovation.</p>
+                    
+                    <p class="about-text-kr">저는 경영학을 전공하고 세일즈 및 마케팅 인턴으로 일하면서 데이터가 비즈니스 의사결정에 얼마나 중요한 역할을 하는지 깨달았습니다. 이후 데이터 분석 부트캠프에 참여하고 선형대수학, 데이터 분석 및 시각화 과정을 추가로 이수하며 데이터 전문가로 성장하기 위해 노력하고 있습니다.</p>
+                    <p class="about-text-kr">데이터 기반 인사이트로 복잡한 비즈니스 문제를 해결하고 실질적인 가치를 창출하는 것이 제 목표입니다. 분석 능력과 비즈니스 경험을 바탕으로 기업이 데이터 중심의 현명한 의사결정을 내릴 수 있도록 돕고 싶습니다.</p>
                 </div>
                 <div class="education">
                     <h3>Education</h3>
                     <div class="education-item">
                         <h4>B.A. in Business</h4>
                         <p>New York University | 2023</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>International Baccalaureate Diploma</h4>
+                        <p>Shanghai American School | 2019</p>
                     </div>
                 </div>
             </div>
@@ -141,10 +148,6 @@
                             <span>Python</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>R</span>
-                        </div>
-                        <div class="skill-item">
                             <i class="fas fa-database"></i>
                             <span>SQL</span>
                         </div>
@@ -154,16 +157,16 @@
                     <h3>Tools & Technologies</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span>TensorFlow</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>scikit-learn</span>
-                        </div>
-                        <div class="skill-item">
                             <span>Pandas</span>
                         </div>
                         <div class="skill-item">
+                            <span>NumPy</span>
+                        </div>
+                        <div class="skill-item">
                             <span>Tableau</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>scikit-learn</span>
                         </div>
                     </div>
                 </div>
@@ -174,7 +177,11 @@
     <!-- Peer Reviews Section -->
     <section id="peer-reviews" class="peer-reviews">
         <div class="container">
-            <h2>Peer Reviews</h2>
+            <div class="section-header">
+                <h2>Peer Reviews</h2>
+                <p class="subtitle-en">*Based on anonymous feedback from 15 bootcamp colleagues</p>
+                <p class="subtitle-kr">*부트캠프 동료 15명 대상 익명 설문조사 결과</p>
+            </div>
             
             <!-- Hero Metric -->
             <div class="rating-hero">
@@ -210,18 +217,23 @@
                         </div>
                     </div>
                 </div>
-                <p class="rating-text">Average Recommendation Rating</p>
+                <p class="rating-text-en">Average Recommendation Rating</p>
+                <p class="rating-text-kr">평균 추천 평점</p>
             </div>
 
             <!-- Charts Row -->
             <div class="charts-row">
                 <!-- Skills Spider Chart -->
                 <div class="skills-chart">
+                    <h3 class="chart-title-en">Core Competency Assessment</h3>
+                    <h3 class="chart-title-kr">핵심 역량 평가 결과</h3>
                     <canvas id="skillsSpiderChart"></canvas>
                 </div>
 
                 <!-- Word Cloud -->
                 <div class="word-cloud">
+                    <h3 class="chart-title-en">Key Strengths Identified by Peers</h3>
+                    <h3 class="chart-title-kr">동료들이 평가한 주요 강점</h3>
                     <canvas id="wordCloudCanvas"></canvas>
                 </div>
             </div>
@@ -229,41 +241,7 @@
             <!-- Testimonials -->
             <div class="testimonials">
                 <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"Their methodical approach and thorough analysis of projects was impressive. Every step was backed by solid logic and careful consideration."</p>
-                        </div>
-                        <div class="testimonial-attribution">
-                            <span class="testimonial-role">Project Team Member</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"Even when team momentum was low, they maintained their enthusiasm and drive, actively seeking feedback and exploring various approaches to ensure thorough execution."</p>
-                        </div>
-                        <div class="testimonial-attribution">
-                            <span class="testimonial-role">Team Lead</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"Quick decision-making combined with rapid execution led to fast results. Their commitment to sharing progress and seeking team feedback was particularly noteworthy."</p>
-                        </div>
-                        <div class="testimonial-attribution">
-                            <span class="testimonial-role">Project Collaborator</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"They showed exceptional focus on their responsibilities, regardless of others' performance levels. Their commitment to completing tasks was truly admirable."</p>
-                        </div>
-                        <div class="testimonial-attribution">
-                            <span class="testimonial-role">Team Member</span>
-                        </div>
-                    </div>
+                    <!-- Testimonials will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
         </div>
