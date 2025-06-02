@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -20,6 +22,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#peer-reviews">Peer Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="lang-switcher">
@@ -161,6 +164,104 @@
                         </div>
                         <div class="skill-item">
                             <span>Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peer Reviews Section -->
+    <section id="peer-reviews" class="peer-reviews">
+        <div class="container">
+            <h2>Peer Reviews</h2>
+            
+            <!-- Hero Metric -->
+            <div class="rating-hero">
+                <div class="rating-number">
+                    <span class="big-number">9.6</span>
+                    <span class="total">/10</span>
+                </div>
+                <div class="stars">
+                    <div class="star-container">
+                        <div class="star-rating" style="width: 96%;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="star-background">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="rating-text">Average Recommendation Rating</p>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <!-- Skills Spider Chart -->
+                <div class="skills-chart">
+                    <canvas id="skillsSpiderChart"></canvas>
+                </div>
+
+                <!-- Word Cloud -->
+                <div class="word-cloud">
+                    <canvas id="wordCloudCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Their methodical approach and thorough analysis of projects was impressive. Every step was backed by solid logic and careful consideration."</p>
+                        </div>
+                        <div class="testimonial-attribution">
+                            <span class="testimonial-role">Project Team Member</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Even when team momentum was low, they maintained their enthusiasm and drive, actively seeking feedback and exploring various approaches to ensure thorough execution."</p>
+                        </div>
+                        <div class="testimonial-attribution">
+                            <span class="testimonial-role">Team Lead</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Quick decision-making combined with rapid execution led to fast results. Their commitment to sharing progress and seeking team feedback was particularly noteworthy."</p>
+                        </div>
+                        <div class="testimonial-attribution">
+                            <span class="testimonial-role">Project Collaborator</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"They showed exceptional focus on their responsibilities, regardless of others' performance levels. Their commitment to completing tasks was truly admirable."</p>
+                        </div>
+                        <div class="testimonial-attribution">
+                            <span class="testimonial-role">Team Member</span>
                         </div>
                     </div>
                 </div>

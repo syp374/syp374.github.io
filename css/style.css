@@ -541,6 +541,159 @@ body {
     opacity: 0.6;
 }
 
+/* Peer Reviews Section */
+.peer-reviews {
+    padding: 6rem 0;
+    background-color: var(--light-bg);
+}
+
+.peer-reviews h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--primary-color);
+}
+
+/* Hero Rating */
+.rating-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.rating-hero:hover {
+    transform: translateY(-5px);
+}
+
+.rating-number {
+    margin-bottom: 1rem;
+}
+
+.big-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.total {
+    font-size: 2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.stars {
+    margin: 1rem 0;
+}
+
+.stars i {
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin: 0 0.2rem;
+}
+
+.rating-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Star Rating */
+.star-container {
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.star-background {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.star-rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffd700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* Charts Row */
+.charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: start;
+}
+
+.skills-chart,
+.word-cloud {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-chart canvas,
+.word-cloud canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Testimonials */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-content p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.testimonial-attribution {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-role {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -614,5 +767,44 @@ body {
 
     .lang-switcher {
         margin-right: 3rem;
+    }
+
+    .rating-hero {
+        padding: 1.5rem;
+    }
+
+    .big-number {
+        font-size: 3rem;
+    }
+
+    .total {
+        font-size: 1.5rem;
+    }
+
+    .stars i {
+        font-size: 1.2rem;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-chart,
+    .word-cloud {
+        height: 350px;
+    }
+
+    .star-background,
+    .star-rating {
+        font-size: 1rem;
+        letter-spacing: 1px;
     }
 } 

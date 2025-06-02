@@ -135,4 +135,115 @@ langButtons.forEach(button => {
 
 // Set initial active state based on stored language or default to 'en'
 const storedLang = localStorage.getItem('selectedLanguage') || 'en';
-document.querySelector(`.lang-btn[data-lang="${storedLang}"]`).classList.add('active'); 
+document.querySelector(`.lang-btn[data-lang="${storedLang}"]`).classList.add('active');
+
+// Spider Chart
+const ctx = document.getElementById('skillsSpiderChart').getContext('2d');
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: [
+            'Analytical Thinking',
+            'Programming',
+            'Data Visualization',
+            'Data Cleaning',
+            'Business Acumen'
+        ],
+        datasets: [{
+            label: 'Skill Rating',
+            data: [9.5, 8.7, 8.4, 9.2, 8.7],
+            fill: true,
+            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+            borderColor: 'rgba(52, 152, 219, 1)',
+            pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                borderWidth: 3
+            }
+        },
+        scales: {
+            r: {
+                angleLines: {
+                    display: true
+                },
+                suggestedMin: 0,
+                suggestedMax: 10,
+                pointLabels: {
+                    font: {
+                        size: 12
+                    }
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        animation: {
+            duration: 2000
+        }
+    }
+});
+
+// Word Cloud
+const words = [
+    { text: 'Analytical', size: 60 },
+    { text: 'Driven', size: 55 },
+    { text: 'Detail-oriented', size: 50 },
+    { text: 'Problem Solver', size: 45 },
+    { text: 'Passionate', size: 40 },
+    { text: 'Team Player', size: 35 },
+    { text: 'Innovative', size: 30 },
+    { text: 'Determined', size: 25 },
+    { text: 'Thorough', size: 20 },
+    { text: 'Proactive', size: 15 }
+];
+
+const cloudCanvas = document.getElementById('wordCloudCanvas');
+const cloudCtx = cloudCanvas.getContext('2d');
+
+// Set canvas size
+cloudCanvas.width = cloudCanvas.parentElement.offsetWidth;
+cloudCanvas.height = 400;
+
+// Create word cloud
+WordCloud(cloudCanvas, {
+    list: words.map(word => [word.text, word.size]),
+    gridSize: 16,
+    weightFactor: 1,
+    fontFamily: 'Roboto, sans-serif',
+    color: 'rgba(44, 62, 80, 0.8)',
+    backgroundColor: 'transparent',
+    rotateRatio: 0.5,
+    rotationSteps: 2,
+    drawOutOfBound: false
+});
+
+// Update word cloud size on window resize
+window.addEventListener('resize', () => {
+    const cloudCanvas = document.getElementById('wordCloudCanvas');
+    cloudCanvas.width = cloudCanvas.parentElement.offsetWidth;
+    cloudCanvas.height = 400;
+    
+    // Recreate word cloud
+    WordCloud(cloudCanvas, {
+        list: words.map(word => [word.text, word.size]),
+        gridSize: 16,
+        weightFactor: 1,
+        fontFamily: 'Roboto, sans-serif',
+        color: 'rgba(44, 62, 80, 0.8)',
+        backgroundColor: 'transparent',
+        rotateRatio: 0.5,
+        rotationSteps: 2,
+        drawOutOfBound: false
+    });
+}); 
