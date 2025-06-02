@@ -951,4 +951,56 @@ body {
 [data-lang="kr"] .rating-text-kr {
     display: block;
     font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+.subtitle-en,
+.subtitle-kr,
+.tagline-en,
+.tagline-kr,
+.cta-text-en,
+.cta-text-kr {
+    display: none;
+}
+
+[data-lang="en"] .subtitle-en,
+[data-lang="en"] .tagline-en,
+[data-lang="en"] .cta-text-en {
+    display: block;
+}
+
+[data-lang="kr"] .subtitle-kr,
+[data-lang="kr"] .tagline-kr,
+[data-lang="kr"] .cta-text-kr {
+    display: block;
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+.subtitle-en,
+.subtitle-kr {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tagline-en,
+.tagline-kr {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.cta-text-en,
+.cta-text-kr {
+    display: none;
+}
+
+[data-lang="en"] .cta-text-en {
+    display: inline;
+}
+
+[data-lang="kr"] .cta-text-kr {
+    display: inline;
 } 
