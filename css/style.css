@@ -316,11 +316,77 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+}
+
+.project-card:hover .project-hover-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(44, 62, 80, 0.95);
+    color: white;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+.project-hover-content h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.project-hover-content .core-skills {
+    margin: 1rem 0;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.project-hover-content .project-overview,
+.project-hover-content .technical-approach,
+.project-hover-content .key-achievements {
+    margin-bottom: 1.5rem;
+}
+
+.project-hover-content h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.project-hover-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.project-hover-content .view-case-study {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.project-hover-content .view-case-study:hover {
+    color: white;
 }
 
 .project-image {
@@ -336,6 +402,9 @@ body {
 
 .project-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 200px); /* Subtracting image height */
 }
 
 .project-info h3 {
@@ -345,6 +414,7 @@ body {
 
 .project-tags {
     margin: 1rem 0;
+    flex-grow: 1;
 }
 
 .project-tags span {
@@ -362,6 +432,13 @@ body {
     color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
+    margin-top: 1rem;
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--primary-color);
 }
 
 /* Skills Section */

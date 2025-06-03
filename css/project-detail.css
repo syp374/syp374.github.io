@@ -1,0 +1,151 @@
+.project-detail {
+    padding: 8rem 0 6rem;
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+.back-link {
+    margin-bottom: 2rem;
+}
+
+.back-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: var(--secondary-color);
+}
+
+.project-hero {
+    margin-bottom: 3rem;
+}
+
+.project-thumbnail {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.core-skills {
+    background-color: var(--light-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.project-section {
+    margin-bottom: 3rem;
+}
+
+.project-section h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-section li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.project-section li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+}
+
+.pdf-viewer {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 1rem;
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fullscreen-btn,
+.dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.fullscreen-btn:hover,
+.dashboard-link:hover {
+    color: var(--primary-color);
+}
+
+.video-container {
+    width: 100%;
+    margin-top: 1rem;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .project-detail {
+        padding: 6rem 0 4rem;
+    }
+
+    .project-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .project-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .pdf-viewer {
+        height: 400px;
+    }
+} 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LendingClub 대출 미상환자 분류 모델 | Seyoung Park</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="../index.html">Seyoung Park</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#peer-reviews">Peer Reviews</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="back-link">
+                <a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로 돌아가기</a>
+            </div>
+            
+            <h1>프로젝트 정보</h1>
+            
+            <div class="project-hero">
+                <img src="../images/lending_club_project.jpg" alt="LendingClub Project Thumbnail" class="project-thumbnail">
+            </div>
+
+            <div class="project-content">
+                <h2>🎯 LendingClub 대출 미상환자 분류 모델</h2>
+                <div class="core-skills">
+                    <strong>핵심 스킬:</strong> 머신러닝 분류 + 클래스 불균형 처리 + 통계 분석
+                </div>
+
+                <div class="project-section">
+                    <h3>📋 프로젝트 개요:</h3>
+                    <ul>
+                        <li>미국 P2P 대출 플랫폼 LendingClub 데이터로 대출 미상환자 분류 모델 개발</li>
+                        <li>심각한 클래스 불균형(정상:부실 = 9:1) 문제 속 모델링 개선 및 금융 리스크 관리 최적화</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>⚙️ 기술적 접근:</h3>
+                    <ul>
+                        <li>Python(Scikit-learn, XGBoost, LightGBM), SMOTE 오버샘플링, 앙상블 모델링 적용</li>
+                        <li>150+ 변수 중 Feature Engineering을 통한 변수 선택, 비용 기반 평가 지표 설계, ROC Curve 분석 기반 최적 임계값 탐색</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>📊 주요 성과:</h3>
+                    <ul>
+                        <li>XGBoost + SMOTE 조합으로 ROC-AUC 0.89 달성(베이스라인 대비 17% 향상), 대출 미상환자 탐지율 68% 기록</li>
+                        <li>예상 손실 감소율 15-20% 달성으로 대출 심사 자동화 및 효율성 개선 방안 도출</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>프로젝트 PPT:</h3>
+                    <div class="pdf-viewer">
+                        <iframe src="../pdf/lendingclub_ppt.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
+                        <a href="../pdf/lendingclub_ppt.pdf" target="_blank" class="fullscreen-btn">
+                            <i class="fas fa-expand"></i> 전체 화면으로 보기
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h3>프로젝트 발표 영상:</h3>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="../video/lendingclub_project_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Seyoung Park</p>
+        </div>
+    </footer>
+</body>
+</html> 
