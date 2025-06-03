@@ -1,0 +1,11 @@
+# Large files
+pdf/*.pdf
+
+# System files
+.DS_Store
+**/.DS_Store
+
+# Dependencies and build files
+node_modules/
+dist/
+build/ 
