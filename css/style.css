@@ -1003,4 +1003,40 @@ body {
 
 [data-lang="kr"] .cta-text-kr {
     display: inline;
+}
+
+.project-title-en,
+.project-title-kr,
+.project-tags-en,
+.project-tags-kr {
+    display: none;
+}
+
+[data-lang="en"] .project-title-en,
+[data-lang="en"] .project-tags-en {
+    display: block;
+}
+
+[data-lang="kr"] .project-title-kr,
+[data-lang="kr"] .project-tags-kr {
+    display: block;
+}
+
+.project-title-kr {
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+.project-tags-en span,
+.project-tags-kr span {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--light-bg);
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.project-tags-kr span {
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
 } 

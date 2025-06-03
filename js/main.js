@@ -41,26 +41,49 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Initialize EmailJS
+emailjs.init("EMpJL2vIs79NhCvaa");
+
 // Form submission
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    const submitBtn = document.querySelector('.submit-btn');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         message: document.getElementById('message').value
     };
 
-    // Here you would typically send the form data to a server
-    // For now, we'll just log it and show a success message
-    console.log('Form submitted:', formData);
-    
-    // Clear form
-    contactForm.reset();
-    
-    // Show success message
-    alert('Thank you for your message! I will get back to you soon.');
+    try {
+        await emailjs.send(
+            'service_h6swfyk',
+            'template_wpri1cd',
+            {
+                to_email: 'seyoungpark374@gmail.com',
+                from_name: formData.name,
+                from_email: formData.email,
+                message: formData.message,
+            }
+        );
+
+        // Show success message
+        alert('Thank you for your message! I will get back to you soon.');
+        
+        // Clear form
+        contactForm.reset();
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Sorry, there was an error sending your message. Please try again later.');
+    } finally {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+    }
 });
 
 // Add animation to project cards on scroll
@@ -69,10 +92,11 @@ const skillItems = document.querySelectorAll('.skill-item');
 
 const isInViewport = (element) => {
     const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     return (
-        rect.top >= 0 &&
+        rect.top <= (windowHeight * 0.8) && // Trigger when element is 80% from the top of viewport
+        rect.bottom >= 0 &&
         rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 };
@@ -136,7 +160,7 @@ const testimonials = {
             role: "Project Team Member"
         },
         {
-            text: "She showed exceptional focus on her responsibilities, regardless of others' performance levels. Her commitment to completing tasks was truly admirable.",
+            text: "She excels at successfully getting her opinions across to the rest of the team members. Even for minor matters, she anticipates feedback and questions and tries to find evidence to answer them, pointing out aspects that I miss.",
             role: "Project Team Member"
         },
         {
@@ -162,7 +186,7 @@ const testimonials = {
             role: "프로젝트 팀원"
         },
         {
-            text: "팀원이 얼마나 열심히 하는지 안 하는지에 관심을 주로 두기보다는, 먼저 자신이 맡은 일을 책임감 있게 완수하는 모습을 보며 대단하다고 느꼈습니다.",
+            text: "자신의 의견을 나머지 팀원들에게 성공적으로 관철시키시는 장점이 있으십니다. 설령 사소한 내용이라도 피드백과 질문을 예상하여 그에 답할 근거를 찾으려고 하시는 등, 제가 놓치는 부분을 짚어주셨습니다.",
             role: "프로젝트 팀원"
         },
         {
@@ -191,6 +215,9 @@ function updateTestimonials(lang) {
         </div>
     `).join('');
 }
+
+// Initialize testimonials with English content
+updateTestimonials('en');
 
 // Word Cloud Configuration
 const wordCloudData = {
@@ -254,6 +281,81 @@ function updateWordCloud(lang) {
     });
 }
 
+// Spider Chart
+const ctx = document.getElementById('skillsSpiderChart').getContext('2d');
+const spiderChartLabels = {
+    en: [
+        'Analytical Thinking',
+        'Programming',
+        'Data Visualization',
+        'Data Cleaning',
+        'Business Acumen'
+    ],
+    kr: [
+        '분석적 사고',
+        '프로그래밍 능력',
+        '데이터 시각화',
+        '데이터 정제',
+        '비즈니스 통찰력'
+    ]
+};
+
+function updateSpiderChart(lang) {
+    if (window.spiderChart) {
+        window.spiderChart.destroy();
+    }
+    
+    window.spiderChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: spiderChartLabels[lang],
+            datasets: [{
+                label: 'Skill Rating',
+                data: [9.5, 8.7, 8.4, 9.2, 8.7],
+                fill: true,
+                backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                borderColor: 'rgba(52, 152, 219, 1)',
+                pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            },
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 10,
+                    pointLabels: {
+                        font: {
+                            size: 12,
+                            family: lang === 'kr' ? 'Noto Sans KR, sans-serif' : 'Roboto, sans-serif'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            animation: {
+                duration: 2000
+            }
+        }
+    });
+}
+
 function updateLanguage(lang) {
     // Remove language classes from body
     document.body.classList.remove('lang-en', 'lang-kr');
@@ -265,12 +367,17 @@ function updateLanguage(lang) {
     
     // Update word cloud
     updateWordCloud(lang);
+
+    // Update spider chart
+    updateSpiderChart(lang);
 }
 
 // Initialize with English
 document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
 document.body.setAttribute('data-lang', 'en');
 updateWordCloud('en');
+updateTestimonials('en');
+updateSpiderChart('en');
 
 langButtons.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -291,63 +398,6 @@ langButtons.forEach(button => {
         // Store the selected language
         localStorage.setItem('selectedLanguage', lang);
     });
-});
-
-// Spider Chart
-const ctx = document.getElementById('skillsSpiderChart').getContext('2d');
-new Chart(ctx, {
-    type: 'radar',
-    data: {
-        labels: [
-            'Analytical Thinking',
-            'Programming',
-            'Data Visualization',
-            'Data Cleaning',
-            'Business Acumen'
-        ],
-        datasets: [{
-            label: 'Skill Rating',
-            data: [9.5, 8.7, 8.4, 9.2, 8.7],
-            fill: true,
-            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-            borderColor: 'rgba(52, 152, 219, 1)',
-            pointBackgroundColor: 'rgba(52, 152, 219, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            line: {
-                borderWidth: 3
-            }
-        },
-        scales: {
-            r: {
-                angleLines: {
-                    display: true
-                },
-                suggestedMin: 0,
-                suggestedMax: 10,
-                pointLabels: {
-                    font: {
-                        size: 12
-                    }
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        animation: {
-            duration: 2000
-        }
-    }
 });
 
 // Update word cloud size on window resize
