@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seyoung Park - 포트폴리오</title>
     <script>
-        // Set language preference to Korean
-        localStorage.setItem('selectedLanguage', 'kr');
-        
-        // Redirect to main page
-        window.location.href = '../';
+        // Wait for page to load before redirecting
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Set language preference to Korean
+                localStorage.setItem('selectedLanguage', 'kr');
+                
+                // Redirect to main page with a query parameter
+                window.location.href = '../?lang=kr';
+            } catch (error) {
+                console.error('Error setting language:', error);
+                // Fallback redirect
+                window.location.href = '../';
+            }
+        });
     </script>
 </head>
 <body>
     <!-- Fallback content in case JavaScript is disabled -->
-    <p>한국어 페이지로 이동중입니다... <a href="../">여기를 클릭하세요</a></p>
+    <p>한국어 페이지로 이동중입니다... <a href="../?lang=kr">여기를 클릭하세요</a></p>
 </body>
 </html> 
