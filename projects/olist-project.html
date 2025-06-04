@@ -31,7 +31,7 @@
     <section class="project-detail">
         <div class="container">
             <div class="back-link">
-                <a href="../index.html#projects" onclick="return maintainLanguageState(this, event)"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로 돌아가기</a>
+                <a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로 돌아가기</a>
             </div>
             
             <div class="project-hero">
@@ -97,7 +97,7 @@
     <!-- Bottom Back Link -->
     <div class="container">
         <div class="back-link" style="margin: 2rem auto; max-width: 800px;">
-            <a href="../index.html#projects" onclick="return maintainLanguageState(this, event)"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로 돌아가기</a>
+            <a href="../index.html#projects"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로 돌아가기</a>
         </div>
     </div>
 
@@ -107,19 +107,5 @@
             <p>&copy; 2025 Seyoung Park</p>
         </div>
     </footer>
-
-    <script>
-    function maintainLanguageState(link, event) {
-        event.preventDefault();
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('lang');
-        let targetUrl = link.href;
-        if (lang === 'kr') {
-            targetUrl = targetUrl + '?lang=kr';
-        }
-        window.location.href = targetUrl;
-        return false;
-    }
-    </script>
 </body>
 </html> 
