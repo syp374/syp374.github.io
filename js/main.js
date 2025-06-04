@@ -428,35 +428,15 @@ function updateLanguage(lang) {
 
     // Update spider chart
     updateSpiderChart(lang);
-}
 
-// Initialize with English
-document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
-document.body.setAttribute('data-lang', 'en');
-updateWordCloud('en');
-updateTestimonials('en');
-updateSpiderChart('en');
-
-langButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Remove active class from all buttons
-        langButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        // Get the language
-        const lang = button.getAttribute('data-lang');
-        
-        // Update language
-        updateLanguage(lang);
-        
-        // Store the selected language
-        localStorage.setItem('selectedLanguage', lang);
+    // Update visibility of language-specific elements
+    document.querySelectorAll('[class*="-en"]').forEach(el => {
+        el.style.display = lang === 'en' ? '' : 'none';
     });
-});
+    document.querySelectorAll('[class*="-kr"]').forEach(el => {
+        el.style.display = lang === 'kr' ? '' : 'none';
+    });
+}
 
 // Update word cloud size on window resize
 window.addEventListener('resize', () => {
