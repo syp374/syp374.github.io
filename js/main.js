@@ -138,12 +138,73 @@ animateOnScroll();
 // Language Switcher
 const langButtons = document.querySelectorAll('.lang-btn');
 
-// Remove any existing active classes first
-langButtons.forEach(btn => btn.classList.remove('active'));
+// Function to get URL parameters
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
 
-// Initialize with English
-document.querySelector('.lang-btn[data-lang="en"]').classList.add('active');
-document.body.setAttribute('data-lang', 'en');
+// Initialize language based on URL parameter or default to English
+const initLanguage = () => {
+    const langParam = getUrlParameter('lang');
+    const initialLang = langParam === 'kr' ? 'kr' : 'en';
+    
+    // Remove any existing active classes first
+    langButtons.forEach(btn => btn.classList.remove('active'));
+    
+    // Set active class and update language
+    document.querySelector(`.lang-btn[data-lang="${initialLang}"]`).classList.add('active');
+    document.body.setAttribute('data-lang', initialLang);
+    
+    // Update content
+    updateTestimonials(initialLang);
+    updateWordCloud(initialLang);
+    updateSpiderChart(initialLang);
+    
+    // Update visibility of language-specific elements
+    document.querySelectorAll('[class*="-en"]').forEach(el => {
+        el.style.display = initialLang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[class*="-kr"]').forEach(el => {
+        el.style.display = initialLang === 'kr' ? '' : 'none';
+    });
+}
+
+// Call initialization on page load
+document.addEventListener('DOMContentLoaded', initLanguage);
+
+// Update language switcher click handlers
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-lang');
+        
+        // Update URL without reloading the page
+        const url = new URL(window.location);
+        url.searchParams.set('lang', lang);
+        window.history.pushState({}, '', url);
+        
+        // Remove active class from all buttons
+        langButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Update language
+        document.body.setAttribute('data-lang', lang);
+        updateTestimonials(lang);
+        updateWordCloud(lang);
+        updateSpiderChart(lang);
+        
+        // Update visibility of language-specific elements
+        document.querySelectorAll('[class*="-en"]').forEach(el => {
+            el.style.display = lang === 'en' ? '' : 'none';
+        });
+        document.querySelectorAll('[class*="-kr"]').forEach(el => {
+            el.style.display = lang === 'kr' ? '' : 'none';
+        });
+    });
+});
 
 const testimonials = {
     en: [
@@ -215,9 +276,6 @@ function updateTestimonials(lang) {
         </div>
     `).join('');
 }
-
-// Initialize testimonials with English content
-updateTestimonials('en');
 
 // Word Cloud Configuration
 const wordCloudData = {
