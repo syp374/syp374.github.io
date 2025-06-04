@@ -1118,4 +1118,48 @@ body {
 
 .project-tags-kr span {
     font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+}
+
+/* Contact Section Language Switching */
+.contact-title-en,
+.contact-title-kr {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    display: none;
+}
+
+[data-lang="en"] .contact-title-en,
+[data-lang="en"] .contact-text-en {
+    display: block;
+}
+
+[data-lang="kr"] .contact-title-kr,
+[data-lang="kr"] .contact-text-kr {
+    display: block;
+}
+
+.contact-text-en,
+.contact-text-kr {
+    display: none;
+}
+
+.submit-btn .contact-text-en,
+.submit-btn .contact-text-kr {
+    display: none;
+}
+
+[data-lang="en"] .submit-btn .contact-text-en {
+    display: inline;
+}
+
+[data-lang="kr"] .submit-btn .contact-text-kr {
+    display: inline;
+}
+
+/* Ensure contact icons are always visible */
+.contact-item i {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 } 
