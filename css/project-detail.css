@@ -163,6 +163,40 @@
     color: var(--primary-color);
 }
 
+/* Language-specific display for project detail page */
+.project-title-en, .project-title-kr,
+.meta-text-en, .meta-text-kr,
+.skills-text-en, .skills-text-kr,
+.section-title-en, .section-title-kr,
+.overview-text-en, .overview-text-kr,
+.tech-text-en, .tech-text-kr,
+.achievement-text-en, .achievement-text-kr,
+.award-link-text-en, .award-link-text-kr {
+    display: none;
+}
+
+[data-lang="en"] .project-title-en,
+[data-lang="en"] .meta-text-en,
+[data-lang="en"] .skills-text-en,
+[data-lang="en"] .section-title-en,
+[data-lang="en"] .overview-text-en,
+[data-lang="en"] .tech-text-en,
+[data-lang="en"] .achievement-text-en,
+[data-lang="en"] .award-link-text-en {
+    display: block;
+}
+
+[data-lang="kr"] .project-title-kr,
+[data-lang="kr"] .meta-text-kr,
+[data-lang="kr"] .skills-text-kr,
+[data-lang="kr"] .section-title-kr,
+[data-lang="kr"] .overview-text-kr,
+[data-lang="kr"] .tech-text-kr,
+[data-lang="kr"] .achievement-text-kr,
+[data-lang="kr"] .award-link-text-kr {
+    display: block;
+}
+
 .video-container {
     width: 100%;
     margin-top: 1rem;
