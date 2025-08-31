@@ -47,6 +47,23 @@
     margin-bottom: 1rem;
 }
 
+.project-meta {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.project-meta p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.project-meta p:last-child {
+    margin-bottom: 0;
+}
+
 .core-skills {
     background-color: var(--light-bg);
     padding: 1rem;
@@ -112,6 +129,37 @@
 
 .fullscreen-btn:hover,
 .dashboard-link:hover {
+    color: var(--primary-color);
+}
+
+.award-highlight {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #ffd700;
+    text-align: center;
+}
+
+.award-highlight p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.award-highlight p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.award-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.award-link:hover {
     color: var(--primary-color);
 }
 

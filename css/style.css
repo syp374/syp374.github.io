@@ -320,6 +320,24 @@ body {
     position: relative;
 }
 
+.project-card.full-width {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+}
+
+.project-card.full-width .project-image {
+    flex: 1;
+    height: 100%;
+}
+
+.project-card.full-width .project-info {
+    flex: 1;
+    height: 100%;
+    padding: 2rem;
+}
+
 .project-card:hover {
     transform: translateY(-5px);
 }
@@ -1048,6 +1066,20 @@ body {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
+    }
+
+    .project-card.full-width {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .project-card.full-width .project-image {
+        height: 200px;
+    }
+
+    .project-card.full-width .project-info {
+        height: auto;
+        padding: 1.5rem;
     }
 
     .award-icon {
