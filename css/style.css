@@ -502,6 +502,98 @@ body {
     color: var(--text-color);
 }
 
+/* Awards Section */
+.awards {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.awards h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.awards-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.award-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+.award-icon i {
+    font-size: 1.8rem;
+    color: #b8860b;
+}
+
+.award-details {
+    flex: 1;
+}
+
+.award-details h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.award-details h4 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.award-details p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.award-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.award-link:hover {
+    color: var(--primary-color);
+}
+
+.award-link i {
+    font-size: 0.9rem;
+}
+
 /* Contact Section */
 .contact {
     padding: 6rem 0;
@@ -950,6 +1042,24 @@ body {
     .skill-category:first-child .skill-items,
     .skill-category:last-child .skill-items {
         grid-template-columns: 1fr;
+    }
+
+    .award-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .award-icon {
+        align-self: center;
+    }
+
+    .award-details h3 {
+        font-size: 1.2rem;
+    }
+
+    .award-details h4 {
+        font-size: 1rem;
     }
 }
 
