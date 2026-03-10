@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olist 브라질 이커머스 데이터 분석 | Seyoung Park</title>
+    <title>Olist Brazil E-commerce Data Analysis | Seyoung Park</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,16 +14,21 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <a href="../index.html">Seyoung Park</a>
+                <a href="../">Seyoung Park</a>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#home">Home</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="../index.html#skills">Skills</a></li>
-                <li><a href="../index.html#peer-reviews">Peer Reviews</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../#home">Home</a></li>
+                <li><a href="../#about">About</a></li>
+                <li><a href="../#projects">Projects</a></li>
+                <li><a href="../#skills">Skills</a></li>
+                <li><a href="../#peer-reviews">Peer Reviews</a></li>
+                <li><a href="../#contact">Contact</a></li>
             </ul>
+            <div class="lang-switcher">
+                <a href="./olist-project.html" class="lang-btn active" data-lang="en">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="../kr/projects/olist-project.html" class="lang-btn" data-lang="kr">KR</a>
+            </div>
         </div>
     </nav>
 
@@ -31,7 +36,7 @@
     <section class="project-detail">
         <div class="container">
             <div class="back-link">
-                <a href="../index.html#projects" onclick="return maintainLanguageState(this, event)"><i class="fas fa-arrow-left"></i> Return to the Project List</a>
+                <a href="../#projects"><i class="fas fa-arrow-left"></i> Return to the Project List</a>
             </div>
             
             <div class="project-hero">
@@ -108,7 +113,7 @@
     <!-- Bottom Back Link -->
     <div class="container">
         <div class="back-link" style="margin: 2rem auto; max-width: 800px;">
-            <a href="../index.html#projects" onclick="return maintainLanguageState(this, event)"><i class="fas fa-arrow-left"></i> Return to the Project List</a>
+            <a href="../#projects"><i class="fas fa-arrow-left"></i> Return to the Project List</a>
         </div>
     </div>
 
@@ -119,21 +124,5 @@
         </div>
     </footer>
 
-    <script>
-    function maintainLanguageState(link, event) {
-        event.preventDefault();
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('lang');
-        
-        // Only append lang parameter if it's Korean
-        let targetUrl = link.href;
-        if (lang === 'kr') {
-            targetUrl += (targetUrl.includes('?') ? '&' : '?') + 'lang=kr';
-        }
-        
-        window.location.href = targetUrl;
-        return false;
-    }
-    </script>
 </body>
 </html> 

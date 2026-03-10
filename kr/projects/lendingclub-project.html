@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LendingClub 대출 미상환자 분류 모델 | Seyoung Park</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="../">Seyoung Park</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../#home">홈</a></li>
+                <li><a href="../#about">소개</a></li>
+                <li><a href="../#projects">프로젝트</a></li>
+                <li><a href="../#skills">스킬</a></li>
+                <li><a href="../#awards">수상</a></li>
+                <li><a href="../#peer-reviews">동료 평가</a></li>
+                <li><a href="../#contact">연락처</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <a href="../../projects/lendingclub-project.html" class="lang-btn" data-lang="en">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="./lendingclub-project.html" class="lang-btn active" data-lang="kr">KR</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="back-link">
+                <a href="../#projects"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로</a>
+            </div>
+
+            <div class="project-hero">
+                <img src="../../images/lending_club_project.jpg" alt="LendingClub 프로젝트 썸네일" class="project-thumbnail">
+            </div>
+
+            <div class="project-content">
+                <h2>🎯 LendingClub 대출 미상환자 분류 모델</h2>
+                <div class="project-meta">
+                    <p><strong>프로젝트 기간:</strong> 2025.04 - 2025.04 (3주)</p>
+                    <p><strong>👥 팀 규모:</strong> 5명</p>
+                </div>
+                <div class="core-skills">
+                    <strong>📌 핵심 스킬:</strong> 분류 모델링 • 클래스 불균형 처리 • 통계 분석
+                </div>
+
+                <div class="project-section">
+                    <h3>📋 프로젝트 개요:</h3>
+                    <p>미국 P2P 대출 플랫폼 LendingClub 데이터를 활용해 대출 미상환(부도) 예측 모델을 개발하고, 심각한 클래스 불균형 상황에서도 성능을 개선하여 리스크 관리 방안을 제안했습니다.</p>
+                </div>
+
+                <div class="project-section">
+                    <h3>⚙️ 기술적 접근:</h3>
+                    <ul>
+                        <li>SMOTE 오버샘플링으로 불균형(정상:부도=9:1) 문제 완화</li>
+                        <li>XGBoost, LightGBM 등 앙상블 기반 분류 모델 비교/선정</li>
+                        <li>150+ 변수에서 핵심 변수 선택 및 파생변수 생성</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>📊 주요 성과:</h3>
+                    <ul>
+                        <li>ROC-AUC 0.89 달성(베이스라인 대비 17% 개선)</li>
+                        <li>부도 탐지율 68% 확보 및 심사 개선안 제시</li>
+                        <li>손실 15~20% 절감 효과 기대</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>🎯 배운 점:</h3>
+                    <ul>
+                        <li><strong>성능 최적화:</strong> 피처 엔지니어링 및 하이퍼파라미터 튜닝 경험</li>
+                        <li><strong>금융 리스크 모델링:</strong> 비용 기반 평가 관점에서의 실무 적용 고려</li>
+                        <li><strong>고차원 데이터 처리:</strong> 핵심 변수 선별과 최적화 역량</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>발표 자료:</h3>
+                    <div class="pdf-viewer">
+                        <iframe src="https://drive.google.com/file/d/1md8h7q4TnbEyJrEjDLlThVF8Df1afmMU/preview" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h3>발표 영상:</h3>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/v1aokWxDX9k?si=lPX3MrpIvh5nNiBy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="back-link" style="margin: 2rem auto; max-width: 800px;">
+            <a href="../#projects"><i class="fas fa-arrow-left"></i> 프로젝트 목록으로</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Seyoung Park</p>
+        </div>
+    </footer>
+</body>
+</html>
+

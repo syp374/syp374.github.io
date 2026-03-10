@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 사이언스 포트폴리오</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="#home">Seyoung Park</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#skills">스킬</a></li>
+                <li><a href="#awards">수상 내역</a></li>
+                <li><a href="#peer-reviews">동료 평가</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <a href="../" class="lang-btn" data-lang="en">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="./" class="lang-btn active" data-lang="kr">KR</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Seyoung👋</h1>
+            <h2 class="subtitle-en">Aspiring Data Professional</h2>
+            <h2 class="subtitle-kr">예비 데이터 분석가</h2>
+            <p class="tagline-en">Transforming Data into Insights</p>
+            <p class="tagline-kr">데이터 속 숨은 가치를 발견하는 탐험가</p>
+            <a href="#projects" class="cta-button">
+                <span class="cta-text-en">View My Work</span>
+                <span class="cta-text-kr">포트폴리오 바로가기</span>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>저는 경영학을 전공하고 세일즈 및 마케팅 인턴으로 일하면서 데이터가 비즈니스 의사결정에 얼마나 중요한 역할을 하는지 깨달았습니다. 이후 데이터 분석 부트캠프에 참여하고 선형대수학, 데이터 분석 및 시각화 과정을 추가로 이수하며 데이터 전문가로 성장하기 위해 노력하고 있습니다.</p>
+                    <p>데이터 기반 인사이트로 복잡한 비즈니스 문제를 해결하고 실질적인 가치를 창출하는 것이 제 목표입니다. 분석 능력과 비즈니스 경험을 바탕으로 기업이 데이터 중심의 현명한 의사결정을 내릴 수 있도록 돕고 싶습니다.</p>
+                </div>
+                <div class="education">
+                    <h3>학력</h3>
+                    <div class="education-item">
+                        <h4>경영학 학사</h4>
+                        <p>New York University | 2023</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>International Baccalaureate Diploma</h4>
+                        <p>Shanghai American School | 2019</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>주요 프로젝트</h2>
+            <div class="project-grid">
+                <!-- Korean Literature Project - Full Width -->
+                <div class="project-card full-width">
+                    <div class="project-image">
+                        <img src="../images/klit_project.png" alt="한국문학 번역 분석 플랫폼">
+                    </div>
+                    <div class="project-info">
+                        <h3>한국문학 번역 분석 플랫폼</h3>
+                        <div class="project-tags">
+                            <span>LLM 기반 텍스트 분석</span>
+                            <span>GAN & TVAE 데이터 증강</span>
+                            <span>클러스터링 & 페르소나 분석</span>
+                            <span>Streamlit 대시보드</span>
+                        </div>
+                        <a href="projects/klit-project.html" class="project-link">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                    <div class="project-hover-content">
+                        <h3>🎯 한국문학 번역 분석 플랫폼</h3>
+                        <div class="core-skills">핵심 스킬: LLM 기반 텍스트 분석 • 데이터 증강 • 군집/페르소나 분석 • Streamlit 대시보드</div>
+                        <div class="project-overview">
+                            <h4>📋 프로젝트 개요:</h4>
+                            <p>- 한국 소설의 글로벌 번역 시장 진출을 돕기 위한 데이터 기반 의사결정 지원 플랫폼 구축</p>
+                            <p>- 아마존 베스트셀러, IMDB 인기 지표 등 외부 데이터를 분석하여 해외 시장 성공 가능성이 높은 소설 식별</p>
+                        </div>
+                        <div class="technical-approach">
+                            <h4>⚙️ 기술적 접근:</h4>
+                            <p>- LLM(Gemini API) 활용: 소설 장르 및 마케팅 표현 자동 분류</p>
+                            <p>- SMOTified-GAN & TVAE: 데이터 불균형 문제 해결을 위한 합성 데이터 생성</p>
+                            <p>- 모델 비교/교차검증: CatBoost, 로지스틱 회귀 등 성능 비교를 통한 최종 모델 선정</p>
+                        </div>
+                        <div class="key-achievements">
+                            <h4>📊 주요 성과:</h4>
+                            <p>- F1-score 0.52 → 0.61 향상으로 예측 정확도 개선</p>
+                            <p>- FUZZY TOPSIS 기반 복합 평가지표 개발 및 번역 우선순위 산정</p>
+                            <p>- SHAP 분석을 통한 모델 해석 가능성 확보 및 주요 변수 영향력 시각화</p>
+                        </div>
+                        <a href="projects/klit-project.html" class="view-case-study">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                </div>
+
+                <!-- Olist -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../images/olist_project.jpg" alt="Olist 브라질 이커머스 데이터 분석">
+                    </div>
+                    <div class="project-info">
+                        <h3>Olist 브라질 이커머스 데이터 분석</h3>
+                        <div class="project-tags">
+                            <span>Tableau 대시보드</span>
+                            <span>시계열 분석</span>
+                            <span>퍼널 분석</span>
+                        </div>
+                        <a href="projects/olist-project.html" class="project-link">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                    <div class="project-hover-content">
+                        <h3>🎯 Olist 브라질 이커머스 데이터 분석</h3>
+                        <div class="core-skills">핵심 스킬: Tableau 대시보드 • 시계열 분석 • 마케팅 퍼널 분석</div>
+                        <div class="project-overview">
+                            <h4>📋 프로젝트 개요:</h4>
+                            <p>- 브라질 B2B 이커머스 플랫폼 Olist의 판매/고객/물류 데이터를 분석하여 셀러 경험 개선 및 신규 셀러 유치 전략 제안</p>
+                            <p>- 매출 분석, 고객 세분화, 물류 최적화 관점에서 경쟁력 강화 방안 도출</p>
+                        </div>
+                        <div class="technical-approach">
+                            <h4>⚙️ 기술적 접근:</h4>
+                            <p>- 다중 이상치 탐지: Z-Score, IQR, Isolation Forest로 비정상 거래 패턴 탐지</p>
+                            <p>- 복잡한 관계 데이터 정합성 확보: 다대다 관계 중복 이슈를 정리하여 병합 품질 개선</p>
+                            <p>- 마케팅 퍼널 분석: 전환 병목 구간을 찾아 개선 포인트 도출</p>
+                        </div>
+                        <div class="key-achievements">
+                            <h4>📊 주요 성과:</h4>
+                            <p>- Tableau 기반 실시간 KPI 모니터링 대시보드 구축</p>
+                            <p>- Sales/Quality/Logistics/Marketing 관점의 개선 전략 제안</p>
+                        </div>
+                        <a href="projects/olist-project.html" class="view-case-study">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                </div>
+
+                <!-- LendingClub -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../images/lending_club_project.jpg" alt="LendingClub 대출 미상환자 분류 모델">
+                    </div>
+                    <div class="project-info">
+                        <h3>LendingClub 대출 미상환자 분류 모델</h3>
+                        <div class="project-tags">
+                            <span>머신러닝 분류</span>
+                            <span>클래스 불균형 처리</span>
+                            <span>통계 분석</span>
+                        </div>
+                        <a href="projects/lendingclub-project.html" class="project-link">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                    <div class="project-hover-content">
+                        <h3>🎯 LendingClub 대출 미상환자 분류 모델</h3>
+                        <div class="core-skills">핵심 스킬: 분류 모델링 • 불균형 데이터 처리 • 통계 분석</div>
+                        <div class="project-overview">
+                            <h4>📋 프로젝트 개요:</h4>
+                            <p>- 미국 P2P 대출 플랫폼 LendingClub 데이터를 활용하여 대출 미상환(부도) 예측 모델 구축</p>
+                            <p>- 심각한 클래스 불균형 환경에서 모델 성능을 개선하고 리스크 관리 방안 제안</p>
+                        </div>
+                        <div class="technical-approach">
+                            <h4>⚙️ 기술적 접근:</h4>
+                            <p>- SMOTE 오버샘플링으로 불균형(정상:부도=9:1) 문제 완화</p>
+                            <p>- XGBoost, LightGBM 등 앙상블 기반 분류 프레임워크 비교</p>
+                            <p>- 150+ 변수에서 핵심 변수 선택 및 파생변수 생성</p>
+                        </div>
+                        <div class="key-achievements">
+                            <h4>📊 주요 성과:</h4>
+                            <p>- ROC-AUC 0.89 달성(베이스라인 대비 17% 개선)</p>
+                            <p>- 부도 탐지율 68% 확보 및 심사 개선안 제시</p>
+                            <p>- 손실 15~20% 절감 효과 기대</p>
+                        </div>
+                        <a href="projects/lendingclub-project.html" class="view-case-study">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                </div>
+
+                <!-- H&M -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../images/hm_project.jpg" alt="H&M 고객 충성도 분석">
+                    </div>
+                    <div class="project-info">
+                        <h3>H&M 고객 충성도 분석</h3>
+                        <div class="project-tags">
+                            <span>고객 세분화</span>
+                            <span>충성 고객 정의</span>
+                            <span>EDA/선호도 분석</span>
+                        </div>
+                        <a href="projects/hm-project.html" class="project-link">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                    <div class="project-hover-content">
+                        <h3>🎯 H&M 고객 충성도 데이터 분석</h3>
+                        <div class="core-skills">핵심 스킬: 고객 세분화 • 충성도 지표 설계 • EDA/선호도 분석</div>
+                        <div class="project-overview">
+                            <h4>📋 프로젝트 개요:</h4>
+                            <p>- RFM 기반 충성 고객 정의를 통해 H&M 구매 데이터를 분석하고, 충성 고객과 일반 고객의 상품 선호 차이를 검증</p>
+                        </div>
+                        <div class="technical-approach">
+                            <h4>⚙️ 기술적 접근:</h4>
+                            <p>- RFM 분석으로 고객 충성도 지표를 정의하고 세그먼트 구성</p>
+                            <p>- 월별 누적 이탈(Churn) 분석으로 고객 생애주기 파악</p>
+                            <p>- 카이제곱 검정/ t-test로 선호도 차이를 통계적으로 검증</p>
+                        </div>
+                        <div class="key-achievements">
+                            <h4>📊 주요 성과:</h4>
+                            <p>- 전체 고객의 12.3%인 충성 고객이 매출의 34% 기여</p>
+                            <p>- 충성 고객의 평균 지출이 일반 고객 대비 2.8배</p>
+                            <p>- CLV 기반 타겟팅 및 마케팅 예산 최적화 전략 제안</p>
+                        </div>
+                        <a href="projects/hm-project.html" class="view-case-study">🔗 프로젝트 상세 정보 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>기술 스킬</h2>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>프로그래밍 언어</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>도구 & 기술</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>Pandas</span></div>
+                        <div class="skill-item"><span>NumPy</span></div>
+                        <div class="skill-item"><span>Tableau</span></div>
+                        <div class="skill-item"><span>scikit-learn</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2>수상</h2>
+            <div class="awards-content">
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-details">
+                        <h3>🥇 전국 데이터 분석 경진대회 1위</h3>
+                        <h4>2025 문화 데이터·AI 혁신 경진대회</h4>
+                        <p>문화체육관광부</p>
+                        <a href="https://www.culture.go.kr/digicon/" target="_blank" rel="noopener noreferrer" class="award-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            대회 공식 웹사이트
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peer Reviews Section -->
+    <section id="peer-reviews" class="peer-reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>동료 평가</h2>
+                <p>*부트캠프 동료 15명 대상 익명 설문조사 결과</p>
+            </div>
+            
+            <div class="rating-hero">
+                <div class="rating-number">
+                    <span class="big-number">9.6</span>
+                    <span class="total">/10</span>
+                </div>
+                <div class="stars">
+                    <div class="star-container">
+                        <div class="star-rating" style="width: 96%;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="star-background">
+                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>평균 추천 평점</p>
+            </div>
+
+            <div class="charts-row">
+                <div class="skills-chart">
+                    <h3>핵심 역량 평가 결과</h3>
+                    <canvas id="skillsSpiderChart"></canvas>
+                </div>
+                <div class="word-cloud">
+                    <h3>동료들이 평가한 주요 강점</h3>
+                    <canvas id="wordCloudCanvas"></canvas>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial-grid">
+                    <!-- inserted by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>연락처</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>seyoungpark374@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/seyoung-park-nyu/" target="_blank" rel="noopener noreferrer">링크드인 프로필</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/syp374" target="_blank" rel="noopener noreferrer">깃허브 프로필</a>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="이름" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="이메일" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="메시지" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">메시지 보내기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Seyoung Park</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
+
