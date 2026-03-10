@@ -41,8 +41,10 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Initialize EmailJS
-emailjs.init("EMpJL2vIs79NhCvaa");
+// Initialize EmailJS (if present)
+if (window.emailjs && typeof window.emailjs.init === 'function') {
+    window.emailjs.init("EMpJL2vIs79NhCvaa");
+}
 
 // Form submission
 const contactForm = document.getElementById('contact-form');
@@ -61,16 +63,21 @@ contactForm.addEventListener('submit', async (e) => {
     };
 
     try {
-        await emailjs.send(
-            'service_h6swfyk',
-            'template_wpri1cd',
-            {
-                to_email: 'seyoungpark374@gmail.com',
-                from_name: formData.name,
-                from_email: formData.email,
-                message: formData.message,
-            }
-        );
+        // Primary: EmailJS (keeps your current setup)
+        if (window.emailjs && typeof window.emailjs.send === 'function') {
+            await window.emailjs.send(
+                'service_h6swfyk',
+                'template_wpri1cd',
+                {
+                    to_email: 'seyoungpark374@gmail.com',
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                }
+            );
+        } else {
+            throw new Error('EmailJS not available');
+        }
 
         // Show success message
         alert('Thank you for your message! I will get back to you soon.');
@@ -78,8 +85,33 @@ contactForm.addEventListener('submit', async (e) => {
         // Clear form
         contactForm.reset();
     } catch (error) {
-        console.error('Error:', error);
-        alert('Sorry, there was an error sending your message. Please try again later.');
+        // Fallback: FormSubmit (works on static sites like GitHub Pages)
+        try {
+            const body = new FormData();
+            body.append('name', formData.name);
+            body.append('email', formData.email);
+            body.append('message', formData.message);
+            body.append('_subject', 'New message from portfolio site');
+            body.append('_captcha', 'false');
+            body.append('_template', 'box');
+
+            const res = await fetch('https://formsubmit.co/ajax/seyoungpark374@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body
+            });
+
+            if (!res.ok) {
+                throw new Error(`FormSubmit error: ${res.status}`);
+            }
+
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        } catch (fallbackError) {
+            console.error('Error:', error);
+            console.error('Fallback error:', fallbackError);
+            alert('Sorry, there was an error sending your message. Please try again later.');
+        }
     } finally {
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
